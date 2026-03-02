@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useLang } from "@/context/LanguageContext";
 
 interface MobileMenuProps {
   className?: string;
@@ -9,12 +10,13 @@ interface MobileMenuProps {
 
 export const MobileMenu = ({ className }: MobileMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLang();
 
   const menuItems = [
-    { name: "О нас", href: "#about" },
-    { name: "Портфолио", href: "#portfolio" },
-    { name: "Инсайты", href: "#insights" },
-    { name: "Контакты", href: "#contact" },
+    { name: t.nav.team, href: "#team" },
+    { name: t.nav.matches, href: "#matches" },
+    { name: t.nav.achievements, href: "#achievements" },
+    { name: t.nav.contact, href: "#contact" },
   ];
 
   const handleLinkClick = () => {
@@ -26,7 +28,7 @@ export const MobileMenu = ({ className }: MobileMenuProps) => {
       <Dialog.Trigger asChild>
         <button
           className={cn(
-            "group lg:hidden p-2 text-foreground transition-colors",
+            "group p-2 text-foreground transition-colors",
             className
           )}
           aria-label="Open menu"
@@ -39,7 +41,7 @@ export const MobileMenu = ({ className }: MobileMenuProps) => {
       <Dialog.Portal>
         <div
           data-overlay="true"
-          className="fixed z-30 inset-0 bg-black/50 backdrop-blur-sm"
+          className="fixed z-30 inset-0 bg-black/60 backdrop-blur-sm"
         />
 
         <Dialog.Content
@@ -61,7 +63,7 @@ export const MobileMenu = ({ className }: MobileMenuProps) => {
                 key={item.name}
                 href={item.href}
                 onClick={handleLinkClick}
-                className="text-xl font-mono uppercase text-foreground/60 transition-colors ease-out duration-150 hover:text-foreground/100 py-2"
+                className="text-xl font-mono uppercase text-foreground/60 transition-colors ease-out duration-150 hover:text-foreground/100 py-2 tracking-widest"
               >
                 {item.name}
               </a>
@@ -69,11 +71,11 @@ export const MobileMenu = ({ className }: MobileMenuProps) => {
 
             <div className="mt-6">
               <a
-                href="#sign-in"
+                href="#join"
                 onClick={handleLinkClick}
-                className="inline-block text-xl font-mono uppercase text-primary transition-colors ease-out duration-150 hover:text-primary/80 py-2"
+                className="inline-block text-xl font-mono uppercase text-primary transition-colors ease-out duration-150 hover:text-primary/80 py-2 tracking-widest"
               >
-                Войти
+                {t.nav.joinUs}
               </a>
             </div>
           </nav>

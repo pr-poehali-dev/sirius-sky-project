@@ -50,7 +50,7 @@ export const GL = ({ hovering }: { hovering: boolean }) => {
         }}
         dpr={[1, 1.5]}
       >
-        <color attach="background" args={["#000"]} />
+        <color attach="background" args={["#0a0602"]} />
         <Particles
           speed={speed}
           aperture={aperture}
