@@ -20,7 +20,7 @@ export function Hero() {
           className="text-[20vw] font-black uppercase tracking-tighter text-white/[0.03] leading-none"
           style={{ fontFamily: "Arial Black, Arial" }}
         >
-          STRIKE
+          CUSTLASS
         </span>
       </div>
 
@@ -32,9 +32,16 @@ export function Hero() {
           <div className="relative">
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary/10 border-2 border-primary/40 flex items-center justify-center backdrop-blur-sm shadow-[0_0_40px_rgba(255,165,0,0.3)]">
               <svg viewBox="0 0 48 48" className="w-12 h-12 md:w-14 md:h-14" fill="none">
-                <polygon points="24,3 44,13 44,35 24,46 4,35 4,13" fill="hsl(var(--primary))" opacity="0.85" />
-                <polygon points="24,11 36,17 36,31 24,38 12,31 12,17" fill="#111" />
-                <text x="50%" y="58%" dominantBaseline="middle" textAnchor="middle" fontFamily="Arial Black" fontWeight="900" fontSize="14" fill="white">SF</text>
+                <g transform="translate(24,26)">
+                  {[-28,-14,0,14,28].map((r, i) => (
+                    <g key={i} transform={`rotate(${r})`}>
+                      <rect x="-1.2" y="-18" width="2.4" height="13" rx="1" fill="#ff8c00" opacity={i === 2 ? 1 : 0.7}/>
+                      <polygon points="0,-19 -2,-21.5 0,-25 2,-21.5" fill="#ff8c00" opacity={i === 2 ? 1 : 0.7}/>
+                    </g>
+                  ))}
+                  <circle cx="0" cy="0" r="4" fill="#1a1a1a" stroke="#ff8c00" strokeWidth="1.5"/>
+                  <circle cx="0" cy="0" r="1.8" fill="#ff8c00"/>
+                </g>
               </svg>
             </div>
             <div className="absolute -inset-1 rounded-full bg-primary/20 blur-md -z-10 animate-pulse" />

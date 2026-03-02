@@ -16,8 +16,9 @@ export const Header = () => {
           {[
             { label: t.nav.team, href: "#team" },
             { label: t.nav.matches, href: "#matches" },
+            { label: t.nav.news, href: "#news" },
             { label: t.nav.achievements, href: "#achievements" },
-            { label: t.nav.contact, href: "#contact" },
+            { label: t.nav.contact, href: "#about" },
           ].map((item) => (
             <a
               className="uppercase inline-block font-mono text-foreground/60 hover:text-foreground/100 duration-150 transition-colors ease-out text-sm tracking-widest"
